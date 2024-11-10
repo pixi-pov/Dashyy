@@ -125,4 +125,4 @@ window.addEventListener("click", (event) => {
 if (window.location.pathname.endsWith("timesheet.html")) {
   // Remove "index.html" from the URL
   window.history.pushState({}, "", window.location.pathname.replace("timesheet.html", ""));
-}
+};
