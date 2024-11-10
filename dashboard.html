@@ -143,6 +143,14 @@
         </ul>
     </div>
 </div>
+<script>
+    // Check if the URL ends with "index.html"
+    if (window.location.pathname.endsWith("dashboard.html")) {
+        // Remove "index.html" from the URL
+        window.history.pushState({}, "", window.location.pathname.replace("dashboard.html", ""));
+    }
+</script>
+
 
     </div><script src="script.js"></script>
 </body>
