@@ -121,3 +121,8 @@ window.addEventListener("click", (event) => {
     modal.style.display = "none";
   }
 });
+// Check if the URL ends with "index.html"
+if (window.location.pathname.endsWith("timesheet.html")) {
+  // Remove "index.html" from the URL
+  window.history.pushState({}, "", window.location.pathname.replace("timesheet.html", ""));
+}

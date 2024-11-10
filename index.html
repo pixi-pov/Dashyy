@@ -50,6 +50,11 @@
         showPasswordButton.textContent = 'Show'; // Change button text to 'Show'
       }
     }
+    // Check if the URL ends with "index.html"
+    if (window.location.pathname.endsWith("index.html")) {
+        // Remove "index.html" from the URL
+        window.history.pushState({}, "", window.location.pathname.replace("index.html", ""));
+    }
   </script>
 </head>
 <body>

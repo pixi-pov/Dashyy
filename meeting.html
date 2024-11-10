@@ -353,6 +353,11 @@
           videoBtn.classList.add('fa-video');
         }
       }
+      // Check if the URL ends with "index.html"
+    if (window.location.pathname.endsWith("meeting.html")) {
+        // Remove "index.html" from the URL
+        window.history.pushState({}, "", window.location.pathname.replace("meeting.html", ""));
+    }
     </script>
   </body>
 </html>
