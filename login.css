@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #23272B; /* Darker background for a professional look */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  animation: fadeIn 1s ease-out; /* Fade-in effect for the page */
+}
+
+.login_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: slideUp 1s ease-out;
+}
+
+.login_box {
+  background: #2C3036; /* Dark, neutral background for professionalism */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  width: 400px;
+  max-width: 100%;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards; /* Fade-in effect for the login box */
+}
+
+.login_header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.company_logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.login_subtext {
+  font-size: 14px;
+  color: #D1D1D1;
+  margin-top: 8px;
+}
+
+.input_group {
+  margin-bottom: 20px;
+}
+
+.input_label {
+  font-size: 14px;
+  color: #B0B0B0; /* Subtle gray label */
+  display: block;
+  margin-bottom: 8px;
+}
+
+.input_field {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 1px solid #3C3F47; /* Darker border for better contrast */
+  border-radius: 8px;
+  background-color: #404552; /* Slightly lighter input field background */
+  color: #D1D1D1;
+  transition: all 0.3s ease;
+  animation: fieldAnimation 0.6s ease-out forwards;
+}
+
+.input_field:focus {
+  border-color: #9F01FB; /* Bright accent color for focus state */
+  background-color: #2A3036; /* Darker background when focused */
+  outline: none;
+}
+
+.login_button {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  background-color: #9f01fb; /* Bright accent for the button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(1); /* Initial scale */
+}
+
+.login_button:hover {
+  background-color: #7504ff; /* Darker shade on hover */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Add subtle shadow on hover */
+}
+
+.login_button:active {
+  background-color: #005B7F; /* Even darker shade when clicked */
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow when clicked */
+}
+
+.terms_footer {
+  font-size: 12px;
+  color: #A7A7A7;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.terms_footer a {
+  color: #9F01FB;
+  text-decoration: none;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fieldAnimation {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Blinking loader animation */
+.loader img {
+  width: 40px; /* Adjust the size of the loader image */
+  height: 40px;
+  animation: blink 1s linear infinite; /* Blinking animation */
+  display: block;
+  margin: 0 auto; /* Center the loader */
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Invisible in the middle of the cycle */
+  }
+  100% {
+    opacity: 1; /* Fully visible again */
+  }
+}
+
+/* Password field and button */
+.password_field {
+  position: relative;
+  width: 100%;
+}
+
+.show_password_button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #9F01FB;
+  font-size: 14px;
+  cursor: pointer;
+}
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smartly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+  <script>
+    function validateLogin(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const correctEmail = 'rahanish4@gmail.com';
+      const correctPassword = '896985';
+
+      const loader = document.getElementById('loader');
+      const loginButton = document.querySelector('.login_button');
+
+      // Show loader and disable login button
+      loader.style.display = 'block';
+      loginButton.disabled = true;
+
+      setTimeout(() => {
+        if (email === correctEmail && password === correctPassword) {
+          // If credentials are correct, show a success message or redirect
+          alert('Login successful! Redirecting...');
+          window.location.href = 'dashboard.html'; // Example redirect
+        } else {
+          // If credentials are incorrect, show an error message
+          alert('Invalid credentials. Please try again.');
+          // Hide loader and enable login button again
+          loader.style.display = 'none';
+          loginButton.disabled = false;
+        }
+      }, 2000); // Simulate a login delay (2 seconds)
+    }
+
+    function togglePasswordVisibility() {
+      const passwordField = document.getElementById('password');
+      const showPasswordButton = document.querySelector('.show_password_button');
+
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        showPasswordButton.textContent = 'Hide'; // Change button text to 'Hide'
+      } else {
+        passwordField.type = 'password';
+        showPasswordButton.textContent = 'Show'; // Change button text to 'Show'
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="login_container">
+    <div class="login_box">
+      <div class="login_header">
+        <img src="ICO.png" alt="Company Logo" class="company_logo">
+        <h1>Welcome Back</h1>
+        <p class="login_subtext">Please log in to access your account</p>
+      </div>
+      <form action="#" method="POST" onsubmit="validateLogin(event)">
+        <div class="input_group">
+          <label for="email" class="input_label">Work Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your company email" class="input_field" required>
+        </div>
+        <div class="input_group">
+          <label for="password" class="input_label">Password</label>
+          <div class="password_field">
+            <input type="password" id="password" name="password" placeholder="Enter your password" class="input_field" required>
+            <button type="button" class="show_password_button" onclick="togglePasswordVisibility()">Show</button>
+          </div>
+        </div>
+        <button type="submit" class="login_button">Log In</button>
+        <!-- Loader icon, initially hidden -->
+        <div id="loader" class="loader" style="display: none;">
+          <img src="ICO.png" alt="Loading..." />
+        </div>
+      </form>
+      <div class="terms_footer">
+        <p>By logging in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,731 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1C002C;
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: #2E1A47;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar {
+    width: 250px;
+    float: left;
+    padding: 20px;
+    color: #FFFFFF;
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #9F7AEA;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;  /* Aligns the image and text horizontally */
+}
+
+.sidebar .logo .logo-icon {
+    width: 50px;  /* Adjust the size of the image */
+    height: 50px; /* Adjust the size of the image */
+    margin-right: 10px; /* Adds space between the image and the text */
+}
+
+.sidebar .menu-item, .sidebar a.menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #CCCCCC;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: color 0.3s, background-color 0.3s;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from link */
+}
+
+
+.sidebar .menu-item i {
+    margin-right: 10px;
+}
+
+.sidebar .menu-item.active,
+.sidebar .menu-item:hover {
+    color: #9F7AEA;
+    background-color: #3E275A;
+}
+
+/* Sidebar calendar container styling */
+.sidebar .calendar {
+    background-color: #3E275A;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 220px; /* Adjusted width */
+    height: auto;
+}
+
+/* Month name styling */
+.sidebar .calendar .month-name {
+    font-size: 18px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Calendar header */
+.sidebar .calendar h3 {
+    color: #CCCCCC;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+/* Calendar grid styling */
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px; /* Slightly more gap for readability */
+    margin-top: 8px;
+    font-size: 11px;
+}
+
+/* Day name styling */
+#calendar .day-name {
+    font-size: 10px;
+    font-weight: 600;
+    color: #B8B8D1;
+    text-align: center;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #5A3E70;
+}
+
+/* General day styling */
+#calendar .day {
+    width: 26px; /* Increased width */
+    height: 26px; /* Increased height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #4A2C6B;
+    color: #FFFFFF;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Day status colors with enhanced effects */
+#calendar .present {
+    background-color: #4CAF50;
+    box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+}
+
+#calendar .absent {
+    background-color: #F44336;
+    box-shadow: 0 0 6px rgba(244, 67, 54, 0.5);
+}
+
+#calendar .current-day {
+    background-color: #2196F3;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
+}
+
+/* Future day styling */
+#calendar .future {
+    background-color: #BDBDBD;
+    color: #757575;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Hover effect for day cells */
+#calendar .day:hover {
+    transform: scale(1.1);
+    background-color: #5C3D84;
+}
+
+/* Empty cell styling */
+#calendar .empty {
+    background-color: transparent;
+}
+
+/* Tooltip styling */
+#calendar .day[title] {
+    position: relative;
+    cursor: help;
+}
+
+#calendar .day[title]::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #FFF;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    max-width: 120px;
+    text-align: center;
+}
+
+#calendar .day:hover[title]::after {
+    opacity: 1;
+    bottom: 110%;
+}
+
+
+
+.sidebar .timer-controls button {
+    background-color: #9F7AEA;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    transition: background-color 0.3s;
+    width: 120px;
+}
+
+.sidebar .timer-controls button:hover {
+    background-color: #C8A9F2;
+}
+
+.sidebar .timer-controls button:disabled {
+    background-color: #7C5D9A;
+    cursor: not-allowed;
+}
+
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3E275A;
+    padding-bottom: 10px;
+}
+
+.header .date {
+    color: #B8B8D1;
+    font-size: 20px; /* Slightly increase the font size */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #3E275A; /* Add background color to make it stand out */
+    border-radius: 10px;
+    padding: 10px 20px; /* Add some padding for better spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
+}
+
+.header .date #current-date {
+    font-size: 18px; /* Slightly smaller size for date */
+    font-weight: 600; /* Make the date text bolder */
+    color: #FFFFFF; /* White color for better contrast */
+}
+
+.header .date #current-time {
+    font-size: 16px; /* Slightly smaller size for time */
+    color: #D3D3D3;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.header .user-info img {
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header .user-info .name {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header .user-info .role {
+    font-size: 14px;
+    color: #B8B8D1;
+}
+
+.welcome {
+    margin-top: 30px;
+}
+
+#welcome h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.typing-effect {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid transparent; /* Remove the blinking cursor effect */
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px; /* Add gap between the stat cards */
+}
+
+.stat {
+    background-color: #3E275A;
+    padding: 20px;
+    border-radius: 10px;
+    width: 22%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px; /* Adds space between rows of cards */
+}
+
+.stat h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #9F7AEA;
+}
+
+.stat p {
+    color: #CCCCCC;
+}
+
+.feedbacks {
+    margin-top: 40px;
+    font-family: 'Arial', sans-serif;
+}
+
+.feedback-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.feedback-card {
+    background-color: #3E275A;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.client-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.client-details h3 {
+    font-size: 18px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.star-rating {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.star {
+    color: #B96FF1;  /* Light lavender/purple color for stars */
+    font-size: 24px;
+    animation: glow 1.5s ease-in-out infinite; /* Glowing animation */
+}
+
+.rating-text {
+    font-size: 16px;
+    color: #B96FF1;  /* Match the star color for the rating text */
+    margin-left: 10px;
+}
+
+.feedback {
+    font-size: 14px;
+    color: #B8B8D1;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+.project-info {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #B8B8D1;
+}
+
+.project-info p {
+    margin: 5px 0;
+}
+
+.feedback-card .star-rating {
+    margin-top: 5px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #B96FF1, 0 0 10px #B96FF1, 0 0 15px #B96FF1;
+    }
+    50% {
+        text-shadow: 0 0 15px #B96FF1, 0 0 20px #B96FF1, 0 0 25px #B96FF1;
+    }
+    100% {
+        text-shadow: 0 0 5px #B96FF1, 0 0 10px #B96FF1, 0 0 15px #B96FF1;
+    }
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Darkened background */
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #2E1A47; /* Original dark color */
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%; /* Smaller modal */
+    max-width: 600px; /* Max width */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    position: relative;
+}
+
+/* Team List */
+#team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Team Member Row */
+.team-member {
+    display: flex;
+    align-items: center; /* Align avatar and name */
+    justify-content: space-between; /* Distribute space */
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #3C1A5B; /* Darker background */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect */
+.team-member:hover {
+    background-color: #4C2A6E; /* Slightly lighter on hover */
+}
+
+/* Avatar and Name Wrapper */
+.team-member-info {
+    display: flex;
+    align-items: center; /* Align avatar and name */
+    gap: 10px; /* Space between avatar and name */
+}
+
+/* Avatar styling */
+.team-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Team Member Name */
+.team-member-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+}
+
+/* Status */
+.status {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 20px; /* Space between name and status */
+}
+
+/* Status Text */
+.status-text {
+    margin-right: 10px; /* Space between status text and dot */
+}
+
+/* Status Colors */
+.status.online {
+    color: #2ecc71; /* Green */
+}
+
+.status.offline {
+    color: #e74c3c; /* Red */
+}
+
+/* Status Dot */
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* Blink Only for Online Status */
+.status.online .status-dot {
+    background-color: #2ecc71; /* Green */
+    animation: blink 1.5s infinite; /* Apply the blinking animation only for online status */
+}
+
+.status.offline .status-dot {
+    background-color: #e74c3c; /* Red */
+}
+
+/* Blinking Animation */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Tooltip for additional status info */
+.status-tooltip {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 12px;
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show tooltip on hover */
+.team-member:hover .status-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Tooltip Arrow */
+.status-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.7) transparent transparent transparent;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .team-member {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .team-member-info {
+        margin-bottom: 10px;
+    }
+
+    .close-btn {
+        font-size: 22px;
+    }
+}
+
+.user-info {
+    position: relative; /* Make the parent relative to position the dropdown */
+    cursor: pointer;
+}
+
+.user-info .name {
+    display: flex;
+    align-items: center;
+}
+
+.user-info .fa-caret-down {
+    margin-left: 5px;
+    font-size: 14px; /* Slightly larger */
+    color: #B3B3FF; /* Softer shade to match UI theme */
+    transition: transform 0.3s ease; /* Smooth rotation transition */
+}
+/* Rotate the arrow when the dropdown is open */
+.user-info.active .fa-caret-down {
+    transform: rotate(180deg); /* Rotate 180 degrees when active */
+}
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #2E1A47;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 120px;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 10px;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #3E275A;
+}
+/* Modal Styles for Message */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #2E1A47;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.close-btn {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3E275A;
+    border: 1px solid #9F7AEA;
+    color: #FFFFFF;
+    resize: vertical;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #9F7AEA;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #C8A9F2;
+}
+
+
+
+

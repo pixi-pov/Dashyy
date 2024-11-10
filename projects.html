@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="ICO.png" alt="Logo Icon" class="logo-icon">
+                SMARTLY
+            </div>
+            <a href="dashboard.html" class="menu-item"><i class="fas fa-home"></i> Dashboard</a>
+            <div class="menu-item active"><i class="fas fa-project-diagram"></i> Projects</div>
+            <a href="panel.html" class="menu-item"><i class="fas fa-phone-square-alt"></i> Panel</a>
+            <a href="timesheet.html" class="menu-item"><i class="fas fa-calendar-alt"></i> Timesheet</a>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="date">
+                    <span id="current-date">Updating</span>
+                    <span id="current-time"></span>
+                </div>
+                <div class="user-info">
+                    <img src="anish.jpeg" width="40" height="40" alt="User Avatar"/>
+                    <div class="name">
+                        Anish Raj
+                        <span class="role">3D Animator</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects">
+                <h1>Projects Overview</h1>
+                <p>Here’s a quick overview of your ongoing projects.</p>
+
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>Project Name</th>
+                            <th>Assigned By</th>
+                            <th>Date</th>
+                            <th>Team Members</th>
+                            <th>Status</th>
+                            <th>Client Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Animated Product Demo</td>
+                            <td>Maria Sarlin</td>
+                            <td>2024-10-21</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user1.jpeg" alt="Member 1" title="Saara Laiho" class="avatar">
+                                    <img src="user.jpeg" alt="Member 2" title="Kathrene Anne Dimaano" class="avatar">
+                                    <img src="user2.jpeg" alt="Member 3" title="Harvie Edbrook" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text in-progress">In Progress</td>
+                            <td>Mary White, Zuora</td>
+                        </tr>
+                        <tr>
+                            <td>Explainer Animation for Service</td>
+                            <td>Maria Sarlin</td>
+                            <td>2024-10-14</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user3.jpeg" alt="Member 4" title="Ervin Paul Rivera" class="avatar">
+                                    <img src="user.jpeg" alt="Member 5" title="Kathrene Anne Dimaano" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text in-progress">In Progress</td>
+                            <td>Meriç Leventler, Instacart</td>
+                        </tr>
+                        <tr>
+                            <td>Motion Graphics for Website Intro</td>
+                            <td>Maria Sarlin</td>
+                            <td>2024-10-03</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user.jpeg" alt="Member 6" title="Kathrene Anne Dimaano" class="avatar">
+                                    <img src="user1.jpeg" alt="Member 7" title="Saara Laiho" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text pending">Pending</td>
+                            <td>Alper Cengiz, Asana</td>
+                        </tr>
+                        <tr>
+                            <td>2D Animation for Educational Video</td>
+                            <td>Mahek Kapoor</td>
+                            <td>2024-09-30</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user1.jpeg" alt="Member 2" title="Saara Laiho" class="avatar">
+                                    <img src="user3.jpeg" alt="Member 8" title="Ervin Paul Rivera" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text in-progress">In Progress</td>
+                            <td>İhsan Ceyhan Solak, Zoox</td>
+                        </tr>
+                        <tr>
+                            <td>Character Animation for Web Series</td>
+                            <td>Ayberk Yerlikaya</td>
+                            <td>2024-09-26</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user2.jpeg" alt="Member 9" title="Harvie Edbrook" class="avatar">
+                                    <img src="user.jpeg" alt="Member 10" title="Kathrene Anne Dimaano" class="avatar">
+                                    <img src="user3.jpeg" alt="Member 11" title="Ervin Paul Rivera" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text delayed">Delayed</td>
+                            <td>Grace Schelp, Cisco Meraki</td>
+                        </tr>
+                        <tr>
+                            <td>Application Animation</td>
+                            <td>Mahek Kapoor</td>
+                            <td>2024-09-20</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user1.jpeg" alt="Member 1" title="Saara Laiho" class="avatar">
+                                    <img src="user2.jpeg" alt="Member 2" title="Harvie Edbrook" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text completed">Completed</td>
+                            <td>Nicole Javech, Atlassian</td>
+                        </tr>
+                        <tr>
+                            <td>Motion Graphics for Social Media Campaign</td>
+                            <td>Maria Sarlin</td>
+                            <td>2024-08-28</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user.jpeg" alt="Member 3" title="Kathrene Anne Dimaano" class="avatar">
+                                    <img src="user1.jpeg" alt="Member 12" title="Saara Laiho" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text on-hold">On Hold</td>
+                            <td>Christina Guzman, ServiceNow</td>
+                        </tr>
+                        <tr>
+                            <td>Grocery Advertisement</td>
+                            <td>Maria Sarlin</td>
+                            <td>2024-08-18</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user.jpeg" alt="Member 9" title="Kathrene Anne Dimaano" class="avatar">
+                                    <img src="user1.jpeg" alt="Member 10" title="Saara Laiho" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text completed">Completed</td>
+                            <td>Chelsea Coral, Instacart</td>
+                        </tr>
+                        <tr>
+                            <td>Seasonal Promotion Animation</td>
+                            <td>Maria Sarlin</td>
+                            <td>2024-08-05</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user2.jpeg" alt="Member 4" title="Harvie Edbrook" class="avatar">
+                                    <img src="user1.jpeg" alt="Member 6" title="Saara Laiho" class="avatar">
+                                    <img src="user3.jpeg" alt="Member 12" title="Ervin Paul Rivera" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text completed">Completed</td>
+                            <td>Holli Ryan RD, Flexport</td>
+                        </tr>
+                        <tr>
+                            <td>Character Animation for Product Launch</td>
+                            <td>Ayberk Yerlikaya</td>
+                            <td>2024-07-28</td>
+                            <td>
+                                <div class="avatar-group">
+                                    <img src="user.jpeg" alt="Member 8" title="Kathrene Anne Dimaano" class="avatar">
+                                    <img src="user1.jpeg" alt="Member 11" title="Saara Laiho" class="avatar">
+                                </div>
+                            </td>
+                            <td class="status-text completed">Completed</td>
+                            <td>Steven Fandl, Affirm</td>
+                        </tr>
+                    </tbody>
+                </table>                
+              
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Date and Time Update
+            function updateDateTime() {
+                const currentDate = new Date();
+                const day = currentDate.toLocaleString('en-US', { weekday: 'short' });
+                const month = currentDate.toLocaleString('en-US', { month: 'short' });
+                const date = currentDate.getDate();
+                const year = currentDate.getFullYear();
+
+                const formattedDate = `${day}, ${month} ${date} ${year}`;
+                document.getElementById('current-date').textContent = formattedDate;
+
+                const timeString = currentDate.toISOString().split('T')[1].split('.')[0];
+                document.getElementById('current-time').textContent = `UTC: ${timeString}`;
+            }
+            setInterval(updateDateTime, 1000);
+        });
+    </script>
+</body>
+</html>

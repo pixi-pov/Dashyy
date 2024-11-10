@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel - Google Meet Like UI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="ICO.png" alt="Logo Icon" class="logo-icon">
+                SMARTLY
+            </div>
+            <a href="dashboard.html" class="menu-item"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="projects.html" class="menu-item"><i class="fas fa-project-diagram"></i> Projects</a>
+            <div class="menu-item active"><i class="fas fa-phone-square-alt"></i> Panel</div>
+            <a href="timesheet.html" class="menu-item"><i class="fas fa-calendar-alt"></i> Timesheet</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <div class="date">
+                    <span id="current-date">Updating</span>
+                    <span id="current-time"></span>
+                </div>
+                <div class="user-info">
+                    <img src="anish.jpeg" width="40" height="40" alt="User Avatar"/>
+                    <div class="name">
+                        Anish Raj
+                        <span class="role">3D Animator</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Section -->
+            <div class="panel">
+                <h1>Welcome to the Panel</h1>
+                <p class="panel-description">You can create a new meeting or join an existing one.</p>
+                <div class="action-buttons">
+                    <button id="create-panel-btn" class="action-btn">Create a Panel</button>
+                    <button id="join-panel-btn" class="action-btn">Join a Panel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup HTML -->
+    <div id="popup" class="popup-container" style="display: none;">
+        <div class="popup">
+            <h1>Your meeting is ready!</h1>
+            <div class="input-group">
+                <i class="fas fa-smile"></i>
+                <input type="text" placeholder="Type a meeting name (optional)">
+                <button><i class="fas fa-pen"></i></button>
+            </div>
+            <p>Invite others by sharing the link below.</p>
+            <div class="link-group">
+                <a href="#" id="meeting-link">xgfV9a33ZGR5</a>
+                <button onclick="copyLink()">COPY</button>
+            </div>
+            <div class="buttons">
+                <button class="start-call" onclick="window.location.href='meeting.html'">Start call</button>
+            </div>            
+            <button class="close-popup" onclick="togglePopup()">Close</button>
+        </div>
+    </div>
+    
+
+    <!-- Join Panel Popup HTML -->
+<div id="join-popup" class="popup-container" style="display: none;">
+    <div class="popup">
+        <h1>Join an existing meeting</h1>
+        <div class="input-group">
+            <i class="fas fa-key"></i>
+            <input type="text" placeholder="Enter Meeting ID">
+            <button><i class="fas fa-check"></i></button>
+        </div>
+        <p>Enter the Meeting ID provided to you.</p>
+        <div class="buttons">
+            <button class="join-call">Join call</button>
+        </div>
+        <button class="close-popup" onclick="toggleJoinPopup()">Close</button>
+    </div>
+</div>
+
+
+    <script src="panel.js"></script>
+</body>
+</html>

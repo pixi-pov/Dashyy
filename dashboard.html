@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="ICO.png" alt="Logo Icon" class="logo-icon">
+                SMARTLY
+            </div>
+            <div class="menu-item active"><i class="fas fa-home"></i> Dashboard</div>
+            <a href="projects.html" class="menu-item"><i class="fas fa-project-diagram"></i> Projects</a>
+            <a href="panel.html" class="menu-item"><i class="fas fa-phone-square-alt"></i> Panel</a>
+            <a href="timesheet.html" class="menu-item"><i class="fas fa-calendar-alt"></i> Timesheet</a>
+           
+    <!-- Calendar Section -->
+<div class="calendar">
+    <div class="month-name" id="month-name"></div> <!-- Added month name here -->
+    <div id="calendar"></div>
+</div>
+
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <div class="date">
+                    <span id="current-date">Updating</span>
+                    <span id="current-time"></span>
+                </div>
+                <div class="user-info">
+                    <img src="anish.jpeg" width="40" height="40" alt="User Avatar"/>
+                    <div class="name" id="user-dropdown-toggle">
+                        Anish Raj
+                        <span class="role">3D Animator</span>
+                        <i class="fas fa-caret-down"></i> <!-- Arrow icon for dropdown -->
+                    </div>
+                    <!-- Dropdown Menu -->
+<div class="dropdown-menu" id="user-dropdown">
+    <a href="message.html" class="dropdown-item" id="message-btn">Message</a>
+    <a href="index.html" class="dropdown-item">Logout</a>
+</div>
+
+<!-- Message Modal -->
+<div id="message-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-message-modal">&times;</span>
+        <h3>Send Message</h3>
+        <textarea id="message-input" rows="5" placeholder="Type your message here..."></textarea>
+        <button id="send-btn">Send</button>
+    </div>
+</div>
+
+                </div>
+                
+            </div>
+            <div class="welcome">
+                <h1 id="typing-effect"></h1>
+                <p>Here’s an overview of your performance.</p>
+            </div>
+            <div class="overview">
+                <div class="stats">
+                    <div class="stat">
+                        <h2>160</h2>
+                        <p>Total Hours Worked</p>
+                    </div>
+                    <div class="stat">
+                        <h2>12</h2>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat">
+                        <h2>24</h2>
+                        <p>Tasks Pending</p>
+                    </div>
+                    <div class="stat">
+                        <h2>8</h2>
+                        <p>Meetings Attended</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feedbacks">
+                <h2>Latest Client Responses</h2>
+                <div class="feedback-slider">
+                    <!-- First Feedback Card: Creative Excellence -->
+                    <div class="feedback-card">
+                        <div class="client-info">
+                            <img src="feed1.png" alt="Client Avatar" class="client-avatar">
+                            <div class="client-details">
+                                <h3>Nicole Javech</h3>
+                                <div class="star-rating">
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="feedback">"The team captured our vision perfectly. The animation was visually stunning and told our story in a way that really resonated with our audience. It was an immediate hit on social media and became a conversation starter at events!"</p>
+                        <div class="project-info">
+                            <p><strong>Project:</strong> Application Animation, Atlassian</p>
+                            <p><strong>Date:</strong> September 28, 2024</p>
+                        </div>
+                    </div>
+            
+                    <!-- Second Feedback Card: Business Growth Impact -->
+                    <div class="feedback-card">
+                        <div class="client-info">
+                            <img src="feed2.png" alt="Client Avatar" class="client-avatar">
+                            <div class="client-details">
+                                <h3>Chelsea Coral</h3>
+                                <div class="star-rating">
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                    <span class="star">&#9733;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="feedback">"This animation took our marketing campaign to new heights! We saw a noticeable increase in foot traffic and customer visits after the ad went live. It truly gave our brand a fresh and impactful presence. We're excited for future projects!"</p>
+                        <div class="project-info">
+                            <p><strong>Project:</strong> Grocery Advertisement, Instacart</p>
+                            <p><strong>Date:</strong> August 23, 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+   <!-- Team Members Modal -->
+<div id="team-modal" class="modal">
+    <div class="modal-content">
+        <h3>Team Members</h3>
+        <ul id="team-list">
+            <!-- Team members will be dynamically inserted here -->
+        </ul>
+    </div>
+</div>
+
+    </div><script src="script.js"></script>
+</body>
+</html>

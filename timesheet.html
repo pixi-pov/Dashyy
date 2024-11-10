@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timesheet</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="timesheet.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Notify popup -->
+      <div class="success">
+        <div class="success__icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            viewBox="0 0 24 24"
+            height="24"
+            fill="none"
+          >
+            <path
+              fill-rule="evenodd"
+              fill="#393a37"
+              d="m12 1c-6.075 0-11 4.925-11 11s4.925 11 11 11 11-4.925 11-11-4.925-11-11-11zm4.768 9.14c.0878-.1004.1546-.21726.1966-.34383.0419-.12657.0581-.26026.0477-.39319-.0105-.13293-.0475-.26242-.1087-.38085-.0613-.11844-.1456-.22342-.2481-.30879-.1024-.08536-.2209-.14938-.3484-.18828s-.2616-.0519-.3942-.03823c-.1327.01366-.2612.05372-.3782.1178-.1169.06409-.2198.15091-.3027.25537l-4.3 5.159-2.225-2.226c-.1886-.1822-.4412-.283-.7034-.2807s-.51301.1075-.69842.2929-.29058.4362-.29285.6984c-.00228.2622.09851.5148.28067.7034l3 3c.0983.0982.2159.1748.3454.2251.1295.0502.2681.0729.4069.0665.1387-.0063.2747-.0414.3991-.1032.1244-.0617.2347-.1487.3236-.2554z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </div>
+        <div class="success__title">Uploaded Successfully</div>
+        <div class="success__close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            viewBox="0 0 20 20"
+            height="20"
+          >
+            <path
+              fill="#393a37"
+              d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="ICO.png" alt="Logo Icon" class="logo-icon">
+                SMARTLY
+            </div>
+            <a href="dashboard.html" class="menu-item"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="projects.html" class="menu-item"><i class="fas fa-project-diagram"></i> Projects</a>
+            <a href="panel.html" class="menu-item"><i class="fas fa-phone-square-alt"></i> Panel</a>
+            <div class="menu-item active"><i class="fas fa-calendar-alt"></i> Timesheet</div>
+        </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <div class="date">
+                    <span id="current-date">Updating</span>
+                    <span id="current-time"></span>
+                </div>
+          <div class="user-info">
+            <img src="anish.jpeg" width="40" height="40" alt="User Avatar" />
+            <div class="name">
+              Anish Raj
+              <span class="role">3D Animator</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timesheet Section -->
+<div class="timesheet">
+  <h1>My Timesheet</h1>
+  <p class="timesheet-description">
+    Track and manage your tasks and working hours.
+  </p>
+
+  <div class="task-list">
+    <!-- Task 1 -->
+    <div class="task-item" id="task1-item">
+      <div class="task-header">
+        <label for="task1">Animated Product Demo</label>
+        <span class="status-label">In Progress</span>
+      </div>
+      <div class="task-assigned-by">
+        <img src="user4.jpeg" alt="Assigner Avatar" class="task-assigner-avatar" />
+        <div class="task-assigner-info">
+          <span class="assignee-name">Maria Sarlin</span>
+          <span class="assignee-position">(Customer Success Manager)</span>
+        </div>
+      </div>
+      <div class="client-info">
+        <img src="zuora.jpg" alt="Client Avatar" class="client-avatar" />
+        <div>
+          <span class="client-name">Client: Mary White</span>
+          <span class="client-company">@Zuora</span>
+        </div>
+      </div>
+      <div class="task-date">
+        <span>Date: 2024-11-10</span>
+      </div>
+      <div class="task-completion">
+        <span>Completion: 19%</span>
+      </div>
+      <div class="task-actions">
+        <label class="container-btn-file">
+          <svg viewBox="0 0 640 512" fill="white" height="1em" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"
+            ></path>
+          </svg>
+          <span>Upload</span>
+          <input class="file" name="text" type="file" multiple="false" />
+        </label>
+        <button id="detailsBtn" class="details-btn">Details</button>
+      </div>      
+    </div>
+            <!-- Task 2 -->
+<div class="task-item" id="task2-item">
+  <div class="task-header">
+    <label for="task2">Explainer Animation for Service</label>
+    <span class="status-label">In Progress</span>
+  </div>
+  <div class="task-assigned-by">
+    <img src="user5.jpeg" alt="Assigner Avatar" class="task-assigner-avatar" />
+    <div class="task-assigner-info">
+      <span class="assignee-name">Ayberk Yerlikaya</span>
+      <span class="assignee-position">(Senior Enterprise Sales Director)</span>
+    </div>
+  </div>
+  <div class="client-info">
+    <img src="insta.avif" alt="Client Avatar" class="client-avatar" />
+    <div>
+      <span class="client-name">Client: Meriç Leventler</span>
+      <span class="client-company">@Instacart</span>
+    </div>
+  </div>
+  <div class="task-date">
+    <span>Date: 2024-11-10</span>
+  </div>
+  <div class="task-completion">
+    <span>Completion: 37%</span>
+  </div>
+  <div class="task-actions">
+    <label class="container-btn-file">
+      <svg viewBox="0 0 640 512" fill="white" height="1em" xmlns="http://www.w3.org/2000/svg">
+        <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"></path>
+      </svg>
+      <span>Upload</span>
+      <input class="file" name="text" type="file" multiple="false" />
+    </label>
+    <button id="detailsBtn" class="details-btn">Details</button>
+  </div>
+</div>
+
+<!-- Task 3 -->
+<div class="task-item" id="task3-item">
+  <div class="task-header">
+    <label for="task3">2D Animation for Educational Video</label>
+    <span class="status-label">In Progress</span>
+  </div>
+  <div class="task-assigned-by">
+    <img src="mahek.jpg" alt="Assigner Avatar" class="task-assigner-avatar" />
+    <div class="task-assigner-info">
+      <span class="assignee-name">Mahek Kapoor</span>
+      <span class="assignee-position">(Chief Marketing Officer)</span>
+    </div>
+  </div>
+  <div class="client-info">
+    <img src="zoox.png" alt="Client Avatar" class="client-avatar" />
+    <div>
+      <span class="client-name">Client: İhsan Ceyhan Solak</span>
+      <span class="client-company">@Zoox</span>
+    </div>
+  </div>
+  <div class="task-date">
+    <span>Date: 2024-11-10</span>
+  </div>
+  <div class="task-completion">
+    <span>Completion: 83%</span>
+  </div>
+  <div class="task-actions">
+    <label class="container-btn-file">
+      <svg viewBox="0 0 640 512" fill="white" height="0.8em" xmlns="http://www.w3.org/2000/svg">
+        <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"></path>
+      </svg>
+      <span>Upload</span>
+      <input class="file" name="text" type="file" multiple="false" />
+    </label>
+    <button id="detailsBtn" class="details-btn">Details</button>
+  </div>
+</div>
+
+
+    <!-- Popup structure -->
+    <div class="card" id="popup">
+      <div class="tools">
+        <div class="circle">
+          <span class="red box"></span>
+        </div>
+      </div>
+      <div class="card__content">
+        <p>Project Overview</p>
+        <!-- <div class="loader" id="loader"></div> -->
+        <div id="project-description">
+          <div class="assigner-info">
+            <img
+              src="user4.jpeg"
+              alt="Assigner Avatar"
+              class="avatar assigner-avatar"
+            />
+            <span class="assigner-name">Assigned by: Maria Sarlin</span>
+          </div>
+          <p class="project-details">
+            <strong>Project Name:</strong> Project Alpha<br />
+            <strong>Duration:</strong> 6 months (Time Remaining: 3 months)<br />
+            <strong>Description:</strong>
+            <span class="detailed-description">
+              Create a modern, open-plan living and dining room with light wood
+              floors, large windows with teal curtains, and natural sunlight
+              streaming in. Add a black leather sectional sofa near a low wooden
+              coffee table and a minimalist wooden dining table with matching
+              chairs. Design a kitchen with light wood and white cabinets,
+              stainless steel appliances, and minimal clutter. Enhance the room
+              with a few potted plants, soft neutral walls, and simple, tasteful
+              decor for an airy, peaceful ambiance. </span
+            ><br />
+          </p>
+          <button class="sample-button">View Sample</button>
+          <div class="team-section">
+            <strong>Team Members:</strong>
+            <div class="avatars">
+              <div class="avatar-container">
+                <img
+                  src="user.jpeg"
+                  alt="Alice"
+                  class="avatar"
+                  data-name="Alice"
+                />
+                <span class="name"> Kathrene Anne Dimaano</span>
+              </div>
+              <div class="avatar-container">
+                <img
+                  src="user1.jpeg"
+                  alt="Bob"
+                  class="avatar"
+                  data-name="Bob"
+                />
+                <span class="name">Saara Laiho</span>
+              </div>
+              <div class="avatar-container">
+                <img
+                  src="user2.jpeg"
+                  alt="Charlie"
+                  class="avatar"
+                  data-name="Charlie"
+                />
+                <span class="name">Harvie Edbrook</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img
+        class="modal-content"
+        id="sampleImage"
+        src="sample.jpg"
+        alt="Sample Image"
+      />
+    </div>
+
+    <script src="timesheet.js"></script>
+  </body>
+</html>

@@ -1,0 +1,273 @@
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1C002C;
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: #2E1A47;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar {
+    width: 250px;
+    float: left;
+    padding: 20px;
+    color: #FFFFFF;
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #9F7AEA;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;  /* Aligns the image and text horizontally */
+}
+
+.sidebar .logo .logo-icon {
+    width: 50px;  /* Adjust the size of the image */
+    height: 50px; /* Adjust the size of the image */
+    margin-right: 10px; /* Adds space between the image and the text */
+}
+
+.sidebar .menu-item, .sidebar a.menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #CCCCCC;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: color 0.3s, background-color 0.3s;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from link */
+}
+
+.sidebar .menu-item i {
+    margin-right: 10px;
+}
+
+.sidebar .menu-item.active,
+.sidebar .menu-item:hover {
+    color: #9F7AEA;
+    background-color: #3E275A;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 270px;
+    padding: 30px;
+    background-color: #2E1A47;
+    border-radius: 15px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3E275A;
+    padding-bottom: 10px;
+}
+
+.header .date {
+    color: #B8B8D1;
+    font-size: 20px; /* Slightly increase the font size */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #3E275A; /* Add background color to make it stand out */
+    border-radius: 10px;
+    padding: 10px 20px; /* Add some padding for better spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
+}
+
+.header .date #current-date {
+    font-size: 18px; /* Slightly smaller size for date */
+    font-weight: 600; /* Make the date text bolder */
+    color: #FFFFFF; /* White color for better contrast */
+}
+
+.header .date #current-time {
+    font-size: 16px; /* Slightly smaller size for time */
+    color: #D3D3D3;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.header .user-info img {
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header .user-info .name {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header .user-info .role {
+    font-size: 14px;
+    color: #B8B8D1;
+}
+
+/* Projects Table */
+.projects-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: #2E1A47;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.projects-table th,
+.projects-table td {
+    padding: 12px 18px; /* Reduced padding for a more minimal look */
+    text-align: left;
+    font-size: 14px; /* Smaller font size */
+    color: #D3D3D3; /* Lighter color for a minimal feel */
+    border-bottom: 1px solid #3E275A; /* Soft borders */
+}
+
+.projects-table th {
+    background-color: #1A0E2C;
+    font-weight: 600;
+    color: #9F7AEA;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.projects-table td {
+    background-color: #3E275A;
+}
+
+/* Minimal Table Row Hover Effect */
+.projects-table tr:hover td {
+    background-color: #3A2A50; /* Slightly lighter shade for a minimal effect */
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Faster transition for a clean effect */
+}
+
+/* Percentage Display */
+.projects-table td .progress-text {
+    font-size: 14px;
+    color: #9F7AEA;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        padding: 20px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+        padding: 20px;
+    }
+
+    .header .user-info img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .projects-table th, .projects-table td {
+        font-size: 14px;
+        padding: 15px 18px;
+    }
+}
+
+/* Avatar Styles */
+.avatar-group {
+    display: flex;
+    gap: 5px;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #3E275A;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+}
+
+/* Tooltip for Avatar Hover */
+.avatar[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #9F7AEA;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0.9;
+}
+/* Default Status Text Colors (White) */
+.projects-table .status-text {
+    color: #FFFFFF; /* Default color for all status text (white) */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Minimal Table Row Hover Effect */
+.projects-table tr:hover td {
+    background-color: #3A2A50; /* Slightly lighter shade for a minimal effect */
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Faster transition for a clean effect */
+}
+
+/* Change text color for the status section on hover */
+.projects-table tr:hover .status-text.in-progress {
+    color: #3E91D3; /* Color when hovered (greenish-blue) */
+}
+
+.projects-table tr:hover .status-text.pending {
+    color: #F7B731; /* Color when hovered (yellow) */
+}
+
+.projects-table tr:hover .status-text.completed {
+    color: #4CAF50; /* Color when hovered (green) */
+}
+
+.projects-table tr:hover .status-text.delayed {
+    color: #FF5722; /* Color when hovered (orange) */
+}
+
+.projects-table tr:hover .status-text.on-hold {
+    color: #9E9E9E; /* Color when hovered (gray) */
+}
+
+
+

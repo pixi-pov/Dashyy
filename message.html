@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar for project sections -->
+        <div class="sidebar">
+            <h2 class="sidebar-heading">Messages</h2>
+            <div class="menu-item active" onclick="openChat('Project Meta', this)">
+                <i class="fas fa-address-book"></i> Project Meta
+            </div>
+            <div class="menu-item" onclick="openChat('Project Panel', this)">
+                <i class="fas fa-address-book"></i> Project Panel
+            </div>
+            <div class="menu-item" onclick="openChat('Project Wallmart', this)">
+                <i class="fas fa-address-book"></i> Project Wallmart
+            </div>
+            <div class="menu-item" onclick="openChat('Project Saddle', this)">
+                <i class="fas fa-address-book"></i> Project Saddle
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Back to Dashboard Button -->
+            <a href="dashboard.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+
+            <div class="header">
+                <div class="date">
+                    <span id="current-date">Updating</span>
+                    <span id="current-time"></span>
+                </div>
+                <div class="user-info">
+                    <img src="anish.jpeg" width="40" height="40" alt="User Avatar"/>
+                    <div class="name">
+                        Anish Raj
+                        <span class="role">3D Animator</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="messages">
+                <h1 id="chat-title">Project Meta</h1>
+                <p>Read and send messages to your team members.</p>
+
+                <div class="message-box" id="message-box">
+                    <!-- Messages will be dynamically added here -->
+                </div>
+
+                <div class="send-message">
+
+                    <textarea placeholder="Write your message..."></textarea>
+                    
+                    <div class="send-options">
+                        <label for="file-upload" class="file-upload-label">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                        <input type="file" id="file-upload" class="file-upload" accept="image/*" />
+                        <button class="send-btn">Send</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // Define different messages for each project with avatars
+    const projectMessages = {
+        "Project Meta": [
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "2d ago", content: "Hey team, please update the project status ASAP." },
+            { sender: "Kathrene Anne Dimaano", role: "UX Designer", avatar: "user.jpeg", time: "2d ago", content: "I have updated the status, let me know if you need anything else." },
+            { sender: "Saara Laiho", role: "Project Manager", avatar: "user1.jpeg", time: "2d ago", content: "Let's discuss the project details tomorrow in the meeting." },
+            { sender: "Harvie Edbrook", role: "Software Engineer", avatar: "user2.jpeg", time: "2d ago", content: "I will need access to the database to implement the changes." },
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "3d ago", content: "Has anyone seen the latest 3D render? Please provide feedback." },
+            { sender: "Kathrene Anne Dimaano", role: "UX Designer", avatar: "user.jpeg", time: "2d ago", content: "The UX changes have been implemented, check it out!" },
+            { sender: "Harvie Edbrook", role: "Software Engineer", avatar: "user2.jpeg", time: "1d ago", content: "I completed the backend update, ready for testing." },
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "1d ago", content: "Great job on the design work, Kathrene!" }
+        ],
+        "Project Panel": [
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "4d ago", content: "Please check the new project prototype and share feedback." },
+            { sender: "Harvie Edbrook", role: "Software Engineer", avatar: "user2.jpeg", time: "4d ago", content: "I reviewed it. Let's meet tomorrow to discuss more." },
+            { sender: "Kathrene Anne Dimaano", role: "UX Designer", avatar: "user.jpeg", time: "3d ago", content: "The design changes are ready, please confirm the next steps." },
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "3d ago", content: "We need to finalize the assets for the final render." },
+            { sender: "Saara Laiho", role: "Project Manager", avatar: "user1.jpeg", time: "3d ago", content: "Meeting rescheduled to Thursday at 2 PM." },
+            { sender: "Ervin Paul Rivera", role: "Project Manager", avatar: "user3.jpeg", time: "3d ago", content: "The client is waiting for the updated demo. Let's move fast!" },
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "2d ago", content: "Please confirm if the 3D renders are aligned with the latest design updates." },
+            { sender: "Harvie Edbrook", role: "Software Engineer", avatar: "user2.jpeg", time: "2d ago", content: "I will start coding the features as soon as I get the final designs." }
+        ],
+        "Project Wallmart": [
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "7d ago", content: "Review the latest design mockups, we need approval by EOD." },
+            { sender: "Saara Laiho", role: "Lead Designer", avatar: "user1.jpeg", time: "7d ago", content: "I made some changes, please check the updated version." },
+            { sender: "Harvie Edbrook", role: "Software Engineer", avatar: "user2.jpeg", time: "4d ago", content: "Looking good! Please proceed with the final updates." },
+            { sender: "Kathrene Anne Dimaano", role: "UX Designer", avatar: "user.jpeg", time: "4d ago", content: "The design has been finalized. We should start development." },
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "3d ago", content: "Please check the animations. I need feedback to finalize." },
+            { sender: "Saara Laiho", role: "Lead Designer", avatar: "user1.jpeg", time: "3d ago", content: "All revisions are done, awaiting approval." },
+            { sender: "Ervin Paul Rivera", role: "Project Manager", avatar: "user3.jpeg", time: "3d ago", content: "We need to expedite the review process to meet the deadline." },
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "3d ago", content: "The renders look great, but I need some adjustments to the lighting." }
+        ],
+        "Project Saddle": [
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "4d ago", content: "Let's have a quick catch-up on the team's progress." },
+            { sender: "Ervin Paul Rivera", role: "Project Manager", avatar: "user3.jpeg", time: "4d ago", content: "Meeting scheduled for tomorrow at 10 AM." },
+            { sender: "Kathrene Anne Dimaano", role: "UX Designer", avatar: "user.jpeg", time: "4d ago", content: "The designs are complete, moving on to implementation." },
+            { sender: "Saara Laiho", role: "Project Manager", avatar: "user1.jpeg", time: "4d ago", content: "I have updated the schedule with the latest changes." },
+            { sender: "Anish Raj", role: "3D Animator", avatar: "anish.jpeg", time: "4d ago", content: "The 3D assets are almost ready for rendering." },
+            { sender: "Harvie Edbrook", role: "Software Engineer", avatar: "user2.jpeg", time: "4d ago", content: "Code is being written for the new features." },
+            { sender: "Kathrene Anne Dimaano", role: "UX Designer", avatar: "user.jpeg", time: "4d ago", content: "All wireframes are completed and ready for the next steps." },
+            { sender: "Ervin Paul Rivera", role: "Project Manager", avatar: "user3.jpeg", time: "4d ago", content: "We are making good progress, let's keep the momentum going!" }
+        ]
+    };
+
+    // Function to update the date and time dynamically
+    function updateDateTime() {
+        const currentDate = new Date();
+        const day = currentDate.toLocaleString('en-US', { weekday: 'short' });
+        const month = currentDate.toLocaleString('en-US', { month: 'short' });
+        const date = currentDate.getDate();
+        const year = currentDate.getFullYear();
+
+        const formattedDate = `${day}, ${month} ${date} ${year}`;
+        document.getElementById('current-date').textContent = formattedDate;
+
+        const timeString = currentDate.toISOString().split('T')[1].split('.')[0];
+        document.getElementById('current-time').textContent = `UTC: ${timeString}`;
+    }
+
+    // Update time every second
+    setInterval(updateDateTime, 1000);
+
+    // Function to display messages based on the selected project
+    window.openChat = function (projectName, element) {
+        // Set the project name in the title
+        document.getElementById("chat-title").textContent = projectName;
+
+        // Clear current messages
+        const messageBox = document.getElementById('message-box');
+        messageBox.innerHTML = '';
+
+        // Add the messages for the selected project
+        const messages = projectMessages[projectName] || [];
+        messages.forEach(message => {
+            const messageItem = document.createElement('div');
+            messageItem.classList.add('message-item');
+
+            messageItem.innerHTML = `
+                <div class="message-header">
+                    <div class="sender-info">
+                        <img src="${message.avatar}" alt="${message.sender} Avatar" class="avatar">
+                        <span class="sender-name">${message.sender}</span>
+                    </div>
+                    <span class="message-time">${message.time}</span>
+                </div>
+                <p class="message-content">${message.content}</p>
+            `;
+            messageBox.appendChild(messageItem);
+        });
+
+        // Scroll to the bottom after adding messages
+        messageBox.scrollTop = messageBox.scrollHeight;
+
+        // Set the active class for the clicked project
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        element.classList.add('active');
+    };
+
+    // Initial load for the default project (Project Meta)
+    openChat('Project Meta');
+
+    // Sending message functionality
+    const sendButtons = document.querySelectorAll('.send-btn');
+    sendButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const newMessage = document.querySelector('.message-input').value.trim();
+            if (newMessage) {
+                const newMessageItem = {
+                    sender: 'You',
+                    avatar: 'your_avatar.jpg',
+                    time: 'Just now',
+                    content: newMessage
+                };
+
+                const currentProject = document.getElementById('chat-title').textContent;
+                projectMessages[currentProject].push(newMessageItem);
+                openChat(currentProject, document.querySelector(`.menu-item[data-project="${currentProject}"]`));
+                document.querySelector('.message-input').value = ''; // Clear input
+            }
+        });
+    });
+});
+
+    
+    </script>
+        
+</body>
+</html>

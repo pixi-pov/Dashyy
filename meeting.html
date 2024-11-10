@@ -1,0 +1,358 @@
+<html>
+  <head>
+    <title>Enhanced Video Call Interface</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #1C002C;
+        margin: 0;
+        padding: 0;
+        color: #FFFFFF;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 50px auto;
+        background-color: #2E1A47;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 20px;
+      }
+
+      /* Main Content styles */
+      .main-content {
+        flex-grow: 1;
+        padding: 20px;
+        background-color: #2E1A47;
+        border-radius: 15px;
+        width: 75%;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #3E275A;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      .header .date {
+        color: #B8B8D1;
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: capitalize;
+        background-color: #3E275A;
+        padding: 10px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .header .date #current-date {
+        font-size: 18px;
+        font-weight: 600;
+        color: #FFFFFF;
+      }
+
+      .header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.header .user-info img {
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 50;
+    height: 50;
+}
+
+.header .user-info .name {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+      /* Video Section */
+      .video-section {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+      }
+
+      .video-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #3E275A;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .video-header h1 {
+        font-size: 20px;
+        color: #FFFFFF;
+      }
+
+      .video-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #3e275a00;
+        padding: 20px;
+        border-radius: 15px;
+      }
+
+      .video-main img {
+        width: 100%;
+        max-height: 500px;
+        border-radius: 10px;
+      }
+
+      .video-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #3E275A;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .video-footer .controls {
+        display: flex;
+        gap: 20px;
+      }
+
+      .video-footer .controls i {
+        font-size: 24px;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .video-footer .controls i:hover {
+        color: #9F7AEA;
+      }
+
+      /* Participants Section */
+      .participants-section {
+        background-color: #3E275A;
+        padding: 20px;
+        border-radius: 10px;
+        width: 25%;
+        margin-left: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Logo styles */
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: #9F7AEA;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo .logo-icon {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      .participants-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .participants-header h2 {
+        color: #FFFFFF;
+        font-size: 18px;
+      }
+
+      .participants-header .count {
+        font-size: 16px;
+        font-weight: bold;
+        color: #9F7AEA;
+      }
+
+      .participants-list {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+
+      .participant {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        border-bottom: 1px solid #B8B8D1;
+      }
+
+      .participant img {
+        width: 50px;  /* Fix the size of participant avatars */
+        height: 50px; /* Fix the size of participant avatars */
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .participant .info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .participant .info .name {
+        font-weight: bold;
+        color: #FFFFFF;
+      }
+
+      .participant .info .company {
+        color: #B8B8D1;
+      }
+
+      /* End Panel Button */
+      .end-panel-btn {
+        background-color: #9F7AEA;
+        color: #fff;
+        padding: 12px 25px;
+        font-size: 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 20px;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .end-panel-btn:hover {
+        background-color: #8c6cbd;
+      }
+
+      .thumbnails img {
+        width: 50px; /* Fixed width */
+        height: 50px; /* Fixed height */
+        border-radius: 50%; /* Make them circular if needed */
+        margin-right: 10px; /* Optional: adds space between thumbnails */
+      }
+
+      /* Responsiveness for small screens */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+
+        .main-content {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        .participants-section {
+          width: 100%;
+          margin-left: 0;
+        }
+
+        .video-main img {
+          width: 100%;
+        }
+
+        .video-footer .controls {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-content">
+        <div class="header">
+          <div class="date">
+            <span id="current-date">Updating</span>
+            <span id="current-time"></span>
+          </div>
+          <div class="user-info">
+            <img src="anish.jpeg" alt="User Image"/>
+            <div class="name">Anish Raj</div>
+          </div>
+        </div>
+
+        <div class="video-section">
+          <div class="video-header">
+            <h1>Smartly Panel</h1>
+          </div>
+          <div class="video-main">
+            <img alt="Main video feed" src="meeting.jpg"/>
+          </div>
+
+          <div class="video-footer">
+            <!-- Video Footer controls -->
+<div class="controls">
+    <i id="mic-btn" class="fas fa-microphone" onclick="toggleMic()" title="Unmute"></i>
+    <i id="video-btn" class="fas fa-video" onclick="toggleVideo()" title="Video On"></i>
+    <i class="fas fa-desktop" title="Share Screen"></i>
+    <i class="fas fa-comment" title="Chat"></i>
+    <i class="fas fa-phone-slash" title="End Call"></i>
+  </div>
+  
+            <div class="thumbnails">
+              <img src="anish.jpeg" alt="Thumbnail" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="participants-section">
+        <div class="logo">
+          <img class="logo-icon" src="ICO.png" alt="Company Logo">
+          <span>SMARTLY</span>
+        </div>
+        <div class="participants-header">
+          <h2>Participants</h2>
+          <span class="count">1 Participants</span>
+        </div>
+        <div class="participants-list">
+          <div class="participant">
+            <img src="anish.jpeg" alt="Participant 1" />
+            <div class="info">
+              <div class="name">Anish Raj</div>
+              <div class="company">3D Animator</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="end-panel-btn">End Panel</button>
+      </div>
+    </div>
+
+    <script>
+      // Toggle Mic button between mute/unmute states
+      function toggleMic() {
+        const micBtn = document.getElementById('mic-btn');
+        if (micBtn.classList.contains('fa-microphone')) {
+          micBtn.classList.remove('fa-microphone');
+          micBtn.classList.add('fa-microphone-slash');
+        } else {
+          micBtn.classList.remove('fa-microphone-slash');
+          micBtn.classList.add('fa-microphone');
+        }
+      }
+
+      // Toggle Video button between on/off states
+      function toggleVideo() {
+        const videoBtn = document.getElementById('video-btn');
+        if (videoBtn.classList.contains('fa-video')) {
+          videoBtn.classList.remove('fa-video');
+          videoBtn.classList.add('fa-video-slash');
+        } else {
+          videoBtn.classList.remove('fa-video-slash');
+          videoBtn.classList.add('fa-video');
+        }
+      }
+    </script>
+  </body>
+</html>
