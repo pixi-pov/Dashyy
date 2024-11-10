@@ -64,5 +64,5 @@ document.querySelectorAll(".close-popup").forEach(button => {
 // Check if the URL ends with "index.html"
 if (window.location.pathname.endsWith("panel.html")) {
     // Remove "index.html" from the URL
-    window.history.pushState({}, "", window.location.pathname.replace("panel.html", ""));
+    window.history.pushState({}, "", window.location.pathname.replace("panel.html", "e18pkl"));
 }
